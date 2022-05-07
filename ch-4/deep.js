@@ -3,20 +3,20 @@ To find out whether values should be compared directly (use the === operator for
 The Object.keys function will be useful when you need to go over the prop- erties of objects to compare them.*/
 
 deepEqual = (value1, value2) => {
-    if(value1 == null || value2 == null || typeof(value1) != "object" || typeof(value2) != "object"){
-        return false;
-    }
-    else if (value1 === value2){
+    if (value1 === value2){
         return true;
     }
-    else{
-        if ((Object.keys(value1)).length != (Object.keys(value2)).length){
+    else if(value1 == null || value2 == null || typeof(value1) != "object" || typeof(value2) != "object"){
+        return false;
+    }
+    else {
+        let keys1 = Object.keys(value1);
+        let keys2 = Object.keys(value2);
+        if (keys1.length != keys2.length){
             return false;
         } else {
-            let keys1 = Object.keys(value1);
-            let keys2 = Object.keys(value2);
-            for(key in keys1){
-                if(!keys2.includes(key) || !deepEqual(a[key], b[key])){
+            for(let key of keys1){
+                if(!keys2.includes(key) || !deepEqual(value1[key], value2[key])){
                     return false;
                 } else {
                     return true;
@@ -25,3 +25,8 @@ deepEqual = (value1, value2) => {
         }
     }
 }
+
+
+object1 = {val:2, idk:3}
+object2 = {val:2, idk:3}
+console.log(deepEqual(object1,{val:2, idk:3}));
