@@ -6,7 +6,6 @@ myRange = (start, end, step=1) => {
     return ran;
 }
 
-let numbers = myRange(1,10);
 rangeSum = (...numbers) => {
     sum = 0;
     for (let number of numbers) {
