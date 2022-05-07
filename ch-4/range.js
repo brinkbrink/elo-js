@@ -6,8 +6,6 @@ myRange = (start, end, step=1) => {
     return ran;
 }
 
-console.log(myRange(1,10));
-
 let numbers = myRange(1,10);
 rangeSum = (...numbers) => {
     sum = 0;
@@ -16,7 +14,5 @@ rangeSum = (...numbers) => {
     }
     return sum;
 }
-console.log(numbers);
-console.log(rangeSum(...numbers));
 
 
